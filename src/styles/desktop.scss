@@ -1,0 +1,76 @@
+//device specific variables
+$headers-font-size: 18px;
+$normal-font-size: 12px;
+
+//general variables
+$background-color: #212121;
+$div-background-color: #131313;
+$font-color: white;
+
+
+html{
+  font-family: Roboto, monospace;
+  font-size: $normal-font-size;
+  background: $background-color;
+  color: $font-color;
+  height: 100%;
+}
+body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#header{
+  flex-shrink: 0;
+  font-size: $headers-font-size;
+  background: $div-background-color;
+  display: flex;
+  flex-direction: row;
+  height: 5%;
+}
+#footer{
+  flex-shrink: 0;
+  text-align: center;
+  background: $div-background-color;
+  margin: 30px 0 0 0;
+  height: 5%;
+}
+#names-sign{
+  display: table;
+  width: 30%;
+  margin: 0 0 0 20px;
+  height: 100%;
+}
+#var-sign{
+  display: table;
+  height: 100%;
+  width: 30%;
+  text-align: right;
+  margin: 0 20px 0 0;
+}
+#lab-sign{
+  display: table;
+  width: 40%;
+  text-align: center;
+  color: crimson;
+  height: 100%;
+}
+#lab-sign span{
+  color: greenyellow;
+  font-style: italic;
+}
+#var-sign > div, #names-sign > div, #var-sign > div{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+
+#root{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#main{
+  flex: 1 0 auto;
+}
