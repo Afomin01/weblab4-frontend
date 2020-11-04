@@ -1,13 +1,18 @@
 //device specific variables
-$headers-font-size: 18px;
+$headers-font-size: 22px;
+$footer-font-size: 16px;
 $normal-font-size: 12px;
+$minimal-footer-header-width:1200px;
+
+$header-space: 6%;
+$footer-space: 5%;
 
 //general variables
 $background-color: #212121;
 $div-background-color: #131313;
 $font-color: white;
 
-
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 html{
   font-family: Roboto, monospace;
   font-size: $normal-font-size;
@@ -26,19 +31,23 @@ body{
   background: $div-background-color;
   display: flex;
   flex-direction: row;
-  height: 5%;
+  height: $header-space;
+  min-width: $minimal-footer-header-width;
 }
 #footer{
   flex-shrink: 0;
   text-align: center;
+  font-size: $footer-font-size;
   background: $div-background-color;
-  margin: 30px 0 0 0;
-  height: 5%;
+  margin: 1% 0 0 0;
+  padding: 1em 0 0 0;
+  height: $footer-space;
+  min-width: $minimal-footer-header-width;
 }
 #names-sign{
   display: table;
   width: 30%;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 1%;
   height: 100%;
 }
 #var-sign{
@@ -46,7 +55,7 @@ body{
   height: 100%;
   width: 30%;
   text-align: right;
-  margin: 0 20px 0 0;
+  margin: 0 1% 0 0;
 }
 #lab-sign{
   display: table;
@@ -59,20 +68,24 @@ body{
   color: greenyellow;
   font-style: italic;
 }
-#var-sign > div, #names-sign > div, #var-sign > div{
+#var-sign > div, #names-sign > div, #lab-sign > div{
   display: table-cell;
   vertical-align: middle;
 }
-
-
-
+#gitHub-img{
+  height: 2em;
+  width: 2em;
+}
 #root{
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 #main{
+  padding: 2em;
   flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 

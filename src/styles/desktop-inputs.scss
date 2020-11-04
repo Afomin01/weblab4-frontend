@@ -1,3 +1,222 @@
+$inputs-font-size: 12px;
+$input-names-font-size: 16px;
+
+$form-width: 300px;
+$form-divs-margin: 20px;
+$form-border-radius:10px;
+
+$form-color: #181818;
+$inputs-primary-color: #1f58b8;
+$inputs-secondary-color: #ffffff;
+$input-text-line-color: #00a109;
+
+form {
+  background: $form-color;
+  width: $form-width;
+  border-radius: $form-border-radius;
+  padding: $form-border-radius/2;
+  justify-content: center;
+  align-items: center;
+  > div {
+    display: flex;
+    flex-direction: column;
+    margin: $form-divs-margin 0;
+    padding: 0 10%;
+    label {
+      text-align: center;
+    }
+  }
+}
+
+.input-name{
+  font-size: $input-names-font-size;
+}
+
+.radio-text{
+  color: $inputs-secondary-color;
+  font-weight: bold;
+}
+
+.radio-div{
+  display: flex;
+  flex-wrap: wrap;
+  label{
+    flex-basis: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 1em 0;
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+.radio-design{
+  width: 1.2em;
+  height: 1.2em;
+
+  border: 1px solid $inputs-secondary-color;
+  border-radius: 100%;
+  margin-right: 1em;
+
+  position: relative;
+  &:before, &:after {
+    content: "";
+    display: block;
+
+    width: inherit;
+    height: inherit;
+
+    border-radius: inherit;
+
+    position: absolute;
+    transform: scale(0);
+    transform-origin: center center;
+  }
+  &:before {
+    background: $input-text-line-color;
+    opacity: 0;
+    transition: .3s;
+  }
+  &:after {
+    background: $inputs-primary-color;
+    opacity: .4;
+    transition: .6s;
+  }
+}
+
+input[type="radio"]{
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  &:checked+.radio-design::before {
+    opacity: 1;
+    transform: scale(.6);
+  }
+  &:hover+.radio-design, &:focus+.radio-design {
+    border: 1px solid $inputs-primary-color;
+  }
+  &:hover+.radio-design:before, &:focus+.radio-design:before {
+    background: $inputs-primary-color;
+  }
+  &:hover~.radio-text {
+    color: $inputs-primary-color;
+  }
+  &:focus+.radio-design::after, &:active+.radio-design::after {
+    opacity: .1;
+    transform: scale(2.6);
+  }
+}
+
+input[type="text"]{
+  width: 75%;
+  margin: auto;
+  &:required,&:invalid {
+    box-shadow:none;
+  }
+  &:focus~.input-text-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $inputs-primary-color;
+    font-weight:700;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $input-text-line-color,$inputs-primary-color);
+  border-image-slice: 1;
+}
+
+input[type="text"]{
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $input-text-line-color;
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .input-text-label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.text-group {
+  position: relative;
+  padding: 10px 0 0;
+  margin-top: 10px;
+}
+
+.input-text-label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1em;
+  color: grey;
+}
+
+input[type="text"]:focus {
+  ~ .input-text-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1em;
+    color: $inputs-primary-color;
+    font-weight:700;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $input-text-line-color,$inputs-primary-color);
+  border-image-slice: 1;
+}
+
+input[type="text"]{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+.button{
+  width: 40%;
+  color: white;
+  border: 2px solid $input-text-line-color;
+  height: 2em;
+  transition: 1s all ease;
+  background: #090909;
+  border-radius: 5px;
+  margin: 0 5px;
+  box-shadow:none;
+  &:hover{
+    background: $input-text-line-color;
+  }
+  &active{
+    background: yellow;
+  }
+}
+.buttons-div{
+  padding: 2em 0 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .input-field{
   display: block;
 }

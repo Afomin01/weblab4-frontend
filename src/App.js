@@ -2,11 +2,9 @@ import React from "react";
 import './styles/desktop.scss'
 import './styles/desktop-inputs.scss'
 import {Route, Switch, Redirect } from "react-router-dom";
-import Welcome from "./components/welcome";
-import Main from "./components/main";
-import Header from './components/header.js'
-import Footer from './components/footer.js'
-import NotFound from "./components/404";
+import Welcome from "./components/pages/welcome";
+import Main from "./components/pages/main";
+import NotFound from "./components/errors/NotFound";
 
 function App() {
   return (
