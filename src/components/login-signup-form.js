@@ -6,8 +6,8 @@ export default class LoginSignUpForm extends React.Component {
             <div className={"login-signup"}>
                 <div className={"login-signup-buttons"}>
                     <div id={"toggle-btn-slider"}></div>
-                    <button type={"button"} className={"toggle-btn"} onClick={this.signup}>Login</button>
-                    <button type={"button"} className={"toggle-btn"} onClick={this.login}>Sign Up</button>
+                    <button type={"button"} className={"toggle-btn"} onClick={this.slideToLogin}>Login</button>
+                    <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignup}>Sign Up</button>
                 </div>
                 <form id={"login-form"} className={"login-signup-form"}>
                     <label>Login:</label>
@@ -29,15 +29,15 @@ export default class LoginSignUpForm extends React.Component {
         )
     }
 
-    login() {
+    slideToLogin() {
         document.getElementById("login-form").style.left = "50px";
         document.getElementById("signup-form").style.left = "450px";
-        document.getElementById("toggle-btn-slider").style.left = "100px";
+        document.getElementById("toggle-btn-slider").style.left = "0";
     }
 
-    signup() {
+    slideToSignup() {
         document.getElementById("login-form").style.left = "-400px";
         document.getElementById("signup-form").style.left = "50px";
-        document.getElementById("toggle-btn-slider").style.left = "0";
+        document.getElementById("toggle-btn-slider").style.left = "110px";
     }
 }

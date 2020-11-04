@@ -90,6 +90,7 @@ body{
   margin: 35px auto;
   background: white;
   position: relative;
+  border-radius: 30px;
 }
 
 .toggle-btn{
@@ -117,4 +118,12 @@ body{
   position: absolute;
   width: 280px;
   transition: .5s;
+}
+
+#login-form{
+  left: 50px;
+}
+
+#signup-form{
+  left: 450px;
 }
