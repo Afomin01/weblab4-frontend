@@ -1,5 +1,6 @@
 import React from "react";
 import './styles/desktop.scss'
+import './styles/desktop-inputs.scss'
 import {Route, Switch, Redirect } from "react-router-dom";
 import Welcome from "./components/welcome";
 import Main from "./components/main";
