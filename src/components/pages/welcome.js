@@ -1,11 +1,11 @@
 import React from 'react'
-import LoginSignUpForm from "./login-signup-form";
+import AuthorizationForm from "../forms/AuthorizationForm";
 
 export default class Welcome extends React.Component{
     render(){
         return(
             <div>
-                <LoginSignUpForm />
+                <AuthorizationForm />
             </div>
         )
     }

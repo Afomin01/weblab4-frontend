@@ -88,41 +88,13 @@ body{
   flex-direction: column;
 }
 
-
 .login-signup {
   width: 380px;
   height: 480px;
   position: relative;
-  margin: 6% auto;
+  margin: 3% auto;
   padding: 5px;
   overflow: hidden;
-}
-
-.login-signup-buttons {
-  width: 220px;
-  margin: 35px auto;
-  background: white;
-  position: relative;
-}
-
-.toggle-btn{
-  padding: 10px 30px;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  outline: none;
-  position: relative;
-}
-
-#toggle-btn-slider{
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 110px;
-  height: 100%;
-  background: orange;
-  border-radius: 30px;
-  transition: .5s;
 }
 
 .login-signup-form {
@@ -130,4 +102,9 @@ body{
   position: absolute;
   width: 280px;
   transition: .5s;
+}
+
+#login-form, #signup-form{
+  display: flex;
+  flex-direction: column;
 }

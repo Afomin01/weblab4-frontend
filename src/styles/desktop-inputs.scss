@@ -134,7 +134,7 @@ input[type="text"]{
   border-image-slice: 1;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
   font-family: inherit;
   width: 100%;
   border: 0;
@@ -172,14 +172,14 @@ input[type="text"]{
   color: grey;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
   ~ .input-text-label {
     position: absolute;
     top: 0;
     display: block;
     transition: 0.2s;
     font-size: 1em;
-    color: $inputs-primary-color;
+    color: $input-text-line-color;
     font-weight:700;
   }
   padding-bottom: 6px;
@@ -189,7 +189,7 @@ input[type="text"]:focus {
   border-image-slice: 1;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
   &:required,&:invalid { box-shadow:none; }
 }
 
@@ -197,7 +197,7 @@ input[type="text"]{
   width: 40%;
   color: white;
   border: 2px solid $input-text-line-color;
-  height: 2em;
+  height: 2.2em;
   transition: 1s all ease;
   background: #090909;
   border-radius: 5px;
@@ -219,4 +219,31 @@ input[type="text"]{
 }
 .input-field{
   display: block;
+}
+.toggle-btn{
+  padding: 10px 30px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+}
+
+.toggle-btn-slider{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: greenyellow;
+  border-radius: 30px;
+  transition: .5s;
+}
+
+.toggle-btns-div {
+  width: 210px;
+  margin: 35px auto;
+  background: white;
+  position: relative;
+  border-radius: 30px;
 }
