@@ -9,13 +9,13 @@ export default class AuthorizationForm extends React.Component {
                     <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignIn}>Sign In</button>
                     <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignUp}>Sign Up</button>
                 </div>
-                <form id={"login-form"} className={"login-signup-form"} >
+                <form id={"login-form"} className={"login-signup-form"} onSubmit={this.signInSubmit}>
                     <div className={"text-group"}>
-                        <input type={"text"} name={"login"} placeholder={"Enter login"} id={"login"} autoComplete={"off"}/>
+                        <input type={"text"} name={"login"} placeholder={"Enter login"} id={"login-form-login"} autoComplete={"off"}/>
                         <label htmlFor={"login"} className={"input-text-label"}>Login</label>
                     </div>
                     <div className={"text-group"}>
-                        <input type={"password"} name={"password"} placeholder={"Enter login"} id={"password"} autoComplete={"off"}/>
+                        <input type={"password"} name={"password"} placeholder={"Enter login"} id={"login-form-password"} autoComplete={"off"}/>
                         <label htmlFor={"password"} className={"input-text-label"}>Password</label>
                     </div>
                     <button type={"submit"} className={"button"}>Sign Up</button>
@@ -37,6 +37,24 @@ export default class AuthorizationForm extends React.Component {
                 </form>
             </div>
         )
+    }
+
+    signInSubmit(e) {
+        e.preventDefault();
+
+        var login = document.getElementById("login-form-login").value;
+        var pass = document.getElementById("login-form-password").value;
+        var basicAuth = `${login}:${pass}`;
+
+        fetch("http://localhost:6203/login", {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                Authorization: `Basic ${btoa(basicAuth)}`
+            }
+        }).then(responce => {
+
+        });
     }
 
     slideToSignIn() {
