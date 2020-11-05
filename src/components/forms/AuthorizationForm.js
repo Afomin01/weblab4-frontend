@@ -1,4 +1,6 @@
 import React from 'react'
+import request from "superagent";
+
 
 export default class AuthorizationForm extends React.Component {
     render(){
@@ -10,6 +12,7 @@ export default class AuthorizationForm extends React.Component {
                     <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignUp}>Sign Up</button>
                 </div>
                 <form id={"login-form"} className={"login-signup-form"} onSubmit={this.signInSubmit}>
+                    <label className={"error-label"} id={"signin-error"}></label>
                     <div className={"text-group"}>
                         <input type={"text"} name={"login"} placeholder={"Enter login"} id={"login-form-login"} autoComplete={"off"}/>
                         <label htmlFor={"login-form-login"} className={"input-text-label"}>Login</label>
@@ -21,6 +24,7 @@ export default class AuthorizationForm extends React.Component {
                     <button type={"submit"} className={"button"}>Sign In</button>
                 </form>
                 <form id={"signup-form"} className={"login-signup-form"} onSubmit={this.signUpSubmit}>
+                    <label className={"error-label"} id={"signup-error"}></label>
                     <div className={"text-group"}>
                         <input type={"text"} name={"login"} placeholder={"Enter login"} id={"signup-form-login"} autoComplete={"off"}/>
                         <label htmlFor={"signup-form-login"} className={"input-text-label"}>Login</label>
@@ -42,41 +46,47 @@ export default class AuthorizationForm extends React.Component {
     signInSubmit(e) {
         e.preventDefault();
 
+        let error = document.getElementById("signin-error");
+
         var login = document.getElementById("login-form-login").value;
         var pass = document.getElementById("login-form-password").value;
-        var basicAuth = `${login}:${pass}`;
 
-        fetch("http://localhost:6203/api/authorization/sigin", {
-            method: "GET",
-            credentials: "include",
-            headers: {
-                Authorization: `Basic ${btoa(basicAuth)}`,
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        }).then(responce => {
-
-        });
+        request
+            .get('http://localhost:6203/api/authorization/signin')
+            .auth(login, pass)//.set('X-Requested-With', 'XMLHttpRequest')
+            .end(function(err, res){
+                if (res.ok) {
+                    //redirrect
+                }else error.innerHTML = "Incorrect login or password"
+            });
     }
 
     signUpSubmit(e) {
         e.preventDefault();
 
+        let error = document.getElementById("signup-error");
+
         var login = document.getElementById("signup-form-login").value;
         var pass = document.getElementById("signup-form-password").value;
         var passConfirm = document.getElementById("confirm").value;
 
-        if(pass===passConfirm) {
-            fetch("http://localhost:6203/api/authorization/signup", {
-                method: "POST",
-                credentials: "include",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({username:login, password:pass})
-            }).then(responce => {
-
-            });
-        }
+        if(login.length >=5) {
+            if (login.match(/[^a-z0-9]/ig) === null) {
+                if (pass.length >= 5) {
+                    if (pass === passConfirm) {
+                        request
+                            .post('http://localhost:6203/api/authorization/signup')
+                            .send(JSON.stringify({username: login, password: pass}))
+                            .type('json')
+                            .end(function(err, res){
+                                if (res.ok) {
+                                    //redirrect
+                                }else error.innerHTML = res.body;
+                            });
+                    } else error.innerHTML = "Passwords are not equal"
+                } else error.innerHTML = "Password must be at least 5 symbols long"
+            } else error.innerHTML = "Login can contain only latin symbols and digits"
+        }else error.innerHTML = "Login must be at least 5 symbols long"
     }
 
     slideToSignIn() {
