@@ -18,9 +18,9 @@ export default class AuthorizationForm extends React.Component {
                         <input type={"password"} name={"password"} placeholder={"Enter login"} id={"login-form-password"} autoComplete={"off"}/>
                         <label htmlFor={"login-form-password"} className={"input-text-label"}>Password</label>
                     </div>
-                    <button type={"submit"} className={"button"}>Sign Up</button>
+                    <button type={"submit"} className={"button"}>Sign In</button>
                 </form>
-                <form id={"signup-form"} className={"login-signup-form"}>
+                <form id={"signup-form"} className={"login-signup-form"} onSubmit={this.signUpSubmit}>
                     <div className={"text-group"}>
                         <input type={"text"} name={"login"} placeholder={"Enter login"} id={"signup-form-login"} autoComplete={"off"}/>
                         <label htmlFor={"signup-form-login"} className={"input-text-label"}>Login</label>
@@ -33,7 +33,7 @@ export default class AuthorizationForm extends React.Component {
                         <input type={"password"} name={"confirmPassword"} placeholder={"Enter login"} id={"confirm"} autoComplete={"off"}/>
                         <label htmlFor={"confirm"} className={"input-text-label"}>Confirm Password</label>
                     </div>
-                    <button type={"submit"} className={"button"}>Sign In</button>
+                    <button type={"submit"} className={"button"}>Sign Up</button>
                 </form>
             </div>
         )
@@ -46,7 +46,7 @@ export default class AuthorizationForm extends React.Component {
         var pass = document.getElementById("login-form-password").value;
         var basicAuth = `${login}:${pass}`;
 
-        fetch("http://localhost:6203/login", {
+        fetch("http://localhost:6203/api/authorization/sigin", {
             method: "GET",
             credentials: "include",
             headers: {
@@ -55,6 +55,27 @@ export default class AuthorizationForm extends React.Component {
         }).then(responce => {
 
         });
+    }
+
+    signUpSubmit(e) {
+        e.preventDefault();
+
+        var login = document.getElementById("signup-form-login").value;
+        var pass = document.getElementById("signup-form-password").value;
+        var passConfirm = document.getElementById("confirm").value;
+
+        if(pass===passConfirm) {
+            fetch("http://localhost:6203/api/authorization/signup", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({username:login, password:pass})
+            }).then(responce => {
+
+            });
+        }
     }
 
     slideToSignIn() {
