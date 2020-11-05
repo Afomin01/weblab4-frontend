@@ -50,7 +50,8 @@ export default class AuthorizationForm extends React.Component {
             method: "GET",
             credentials: "include",
             headers: {
-                Authorization: `Basic ${btoa(basicAuth)}`
+                Authorization: `Basic ${btoa(basicAuth)}`,
+                'X-Requested-With': 'XMLHttpRequest'
             }
         }).then(responce => {
 
