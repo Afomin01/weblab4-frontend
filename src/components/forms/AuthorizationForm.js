@@ -46,11 +46,12 @@ export default class AuthorizationForm extends React.Component {
         var pass = document.getElementById("login-form-password").value;
         var basicAuth = `${login}:${pass}`;
 
-        fetch("http://localhost:6203/login", {
+        fetch("http://localhost:6203/api/login", {
             method: "GET",
             credentials: "include",
             headers: {
-                Authorization: `Basic ${btoa(basicAuth)}`
+                Authorization: `Basic ${btoa(basicAuth)}`,
+                'X-Requested-With': 'XMLHttpRequest'
             }
         }).then(responce => {
 
