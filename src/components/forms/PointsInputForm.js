@@ -1,116 +1,24 @@
 import React from 'react'
+import TextField from "../inputs/text-field";
+import RadioGroup from "../inputs/radio-group";
 
-export default class NotFound extends React.Component{
+export default class PointsInputForm extends React.Component{
     render(){
         return(
             <div>
                 <form id={"points-form"}>
                     <div>
                         <label className={"input-name"}>Select X value</label>
-                        <div className={"radio-div"}>
-                            <label>
-                                <input type={"radio"} name={"x"} value={-2}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-2</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={-1.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-1.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={-1}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-1</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={-0.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-0.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={0}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>0</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={0.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>0.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={1}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>1</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={1.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>1.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"x"} value={2}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>2</span>
-                            </label>
-                        </div>
+                        <RadioGroup name={"x"} start={-2} stop={2} step={0.5}/>
                     </div>
                     <div>
                         <label className={"input-name"}>Enter Y value</label>
-                        <div  className={"text-group"}>
-                            <input type={"text"} name={"y"} placeholder={"Enter y value"} id={"y"} autoComplete={"off"}/>
-                            <label for={"y"} className={"input-text-label"}>Y Value</label>
-                        </div>
+                        <TextField type={"text"} name={"y"} id={"y"} label={"Y Value"}
+                                   placeholder={"Enter y value"}/>
                     </div>
                     <div>
                         <label className={"input-name"}>Select R value</label>
-                        <div className={"radio-div"}>
-                            <label>
-                                <input type={"radio"} name={"r"} value={-2}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-2</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={-1.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-1.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={-1}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-1</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={-0.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>-0.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={0}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>0</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={0.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>0.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={1}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>2</span>1
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={1.5}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>1.5</span>
-                            </label>
-                            <label>
-                                <input type={"radio"} name={"r"} value={2}/>
-                                <span className={"radio-design"}></span>
-                                <span className={"radio-text"}>2</span>
-                            </label>
-                        </div>
+                        <RadioGroup name={"r"} start={-2} stop={2} step={0.5}/>
                         <div className={"buttons-div"}>
                             <button className={"button"}>Check</button>
                             <button className={"button"}>Clear</button>
