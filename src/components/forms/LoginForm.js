@@ -27,7 +27,8 @@ export default class LoginForm extends React.Component {
         request
             .get('http://localhost:6203/api/authorization/signin')
             .withCredentials()
-            .auth(login, pass)//.set('X-Requested-With', 'XMLHttpRequest')
+            .auth(login, pass)
+            .set('X-Requested-With', 'XMLHttpRequest')
             .end(function(err, res){
                 if (res.ok) {
                     //redirrect
