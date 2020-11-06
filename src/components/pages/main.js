@@ -4,10 +4,11 @@ import Graph from "../graph";
 
 export default class Main extends React.Component{
     render(){
+        console.log(this.props);
         return(
             <div>
                 <div>
-                    <PointsInputForm/>
+                    <PointsInputForm {...this.props}/>
                     <Graph/>
                 </div>
             </div>
