@@ -7,9 +7,9 @@ import Header from "./components/general/header";
 import Footer from "./components/general/footer";
 import { createStore } from "redux";
 import {Provider} from 'react-redux';
-import reducer from "./reducer";
+import rootReducer from "./reducers/root-reducer";
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
     <Provider store={store}>

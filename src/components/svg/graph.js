@@ -1,9 +1,9 @@
-import React from "react";
+import React, {Fragment} from "react";
 
 export default class Graph extends React.Component{
     render(){
         return (
-            <div>
+            <Fragment>
                 <svg height={"600"} width={"600"} viewBox={"-35 -35 420 420"} id={"graph"}>
                     <path d={"M175 175 175 315 A140 140 0 0 0 315 175Z"} className={"figure-shape"}/>
                     <polygon points={"175,175 175,35 35,35 35,175"} className={"figure-shape"}/>
@@ -38,7 +38,7 @@ export default class Graph extends React.Component{
                     <text x={"245"} y={"167"} textAnchor={"middle"} className={"figure-axis-text"}>R/2</text>
                     <text x={"315"} y={"167"} textAnchor={"middle"} className={"figure-axis-text"}>R</text>
                 </svg>
-            </div>
+            </Fragment>
         )
     }
 }

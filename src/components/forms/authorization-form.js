@@ -1,8 +1,8 @@
 import React from 'react'
 import request from "superagent";
 import TextField from "../inputs/text-field";
-import LoginForm from "./LoginForm";
-import SignUpForm from "./SignUpForm";
+import LoginForm from "./sign-in-form";
+import SignUpForm from "./sign-up-form";
 
 
 export default class AuthorizationForm extends React.Component {

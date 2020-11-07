@@ -5,7 +5,7 @@ import './styles/graph.scss'
 import {Route, Switch, Redirect } from "react-router-dom";
 import Welcome from "./components/pages/welcome";
 import Main from "./components/pages/main";
-import NotFound from "./components/errors/NotFound";
+import NotFound from "./components/errors/not-found";
 
 function App() {
   return (

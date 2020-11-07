@@ -86,6 +86,7 @@ body{
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .login-signup {
@@ -116,9 +117,39 @@ body{
 #signup-form{
   left: 450px;
 }
+#entry-form-graph{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .error-label{
   color: crimson;
   margin: 1em 0;
   height: 1em;
   width: 75%;
+}
+.result-table{
+  color: white;
+  width: 50%;
+  border-spacing: 2px;
+  border: 2px solid white;
+  border-collapse: collapse;
+}
+.result-table th{
+  background: #090909;
+  height: 50px;
+  border: 1px solid white;
+  width: 25%;
+  font-size: $footer-font-size;
+}
+.result-table td{
+  height: 50px;
+  text-align: center;
+  background: #151515;
+  border: 1px solid white;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  padding: 5px;
 }

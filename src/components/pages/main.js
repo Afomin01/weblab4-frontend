@@ -1,17 +1,18 @@
-import React from 'react'
-import PointsInputForm from "../forms/PointsInputForm";
-import Graph from "../graph";
+import React, {Fragment} from 'react'
+import PointsInputForm from "../forms/points-input-form";
+import Graph from "../svg/graph";
+import MainPageEntryTable from "../table/main-page-entry-table";
 
 export default class Main extends React.Component{
     render(){
-        console.log(this.props);
         return(
-            <div>
-                <div>
-                    <PointsInputForm {...this.props}/>
+            <Fragment>
+                <div id={"entry-form-graph"}>
+                    <PointsInputForm/>
                     <Graph/>
                 </div>
-            </div>
+                <MainPageEntryTable entries={[]}/>
+            </Fragment>
         )
     }
 }

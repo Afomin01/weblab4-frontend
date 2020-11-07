@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import TextField from "../inputs/text-field";
 import RadioGroup from "../inputs/radio-group";
 
 export default class PointsInputForm extends React.Component{
     render(){
         return(
-            <div>
+            <Fragment>
                 <form id={"points-form"}>
                     <div>
                         <label className={"input-name"}>Select X value</label>
@@ -25,7 +25,7 @@ export default class PointsInputForm extends React.Component{
                         </div>
                     </div>
                 </form>
-            </div>
+            </Fragment>
         )
     }
 }
