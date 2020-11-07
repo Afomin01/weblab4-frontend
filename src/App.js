@@ -7,6 +7,10 @@ import Welcome from "./components/pages/welcome";
 import Main from "./components/pages/main";
 import NotFound from "./components/errors/not-found";
 import Cookies from 'js-cookie'
+import history from './history';
+
+var isAuth = Cookies.get('current-username') != null;
+if (isAuth) history.push('/main');
 
 function App() {
   return (
@@ -14,7 +18,7 @@ function App() {
               <Switch>
                   <Route exact path="/welcome" component={Welcome} />
                   <Route exact path="/main" component={Main} />
-                  <Redirect from='/' to={Cookies.get('current-username') == null ? '/welcome' : '/main'}/>
+                  <Redirect from='/' to={'/welcome'}/>
                   <Route path='/notfound' component={NotFound} />
                   <Redirect from='*' to='/notfound' />
               </Switch>
