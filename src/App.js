@@ -6,6 +6,7 @@ import {Route, Switch, Redirect } from "react-router-dom";
 import Welcome from "./components/pages/welcome";
 import Main from "./components/pages/main";
 import NotFound from "./components/errors/not-found";
+import Cookies from 'js-cookie'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
               <Switch>
                   <Route exact path="/welcome" component={Welcome} />
                   <Route exact path="/main" component={Main} />
-                  <Redirect from='/' to='/welcome'/>
+                  <Redirect from='/' to={Cookies.get('current-username') == null ? '/welcome' : '/main'}/>
                   <Route path='/notfound' component={NotFound} />
                   <Redirect from='*' to='/notfound' />
               </Switch>

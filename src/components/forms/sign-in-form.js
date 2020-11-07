@@ -2,6 +2,7 @@ import React from 'react'
 import request from "superagent";
 import TextField from "../inputs/text-field";
 import history from '../../history';
+import Cookies from 'js-cookie'
 
 export default class LoginForm extends React.Component {
     render() {
@@ -32,6 +33,7 @@ export default class LoginForm extends React.Component {
             .set('X-Requested-With', 'XMLHttpRequest')
             .end(function(err, res){
                 if (res.ok) {
+                    Cookies.set('current-username', login);
                     history.push("/main")
                 }else error.innerHTML = "Incorrect login or password"
             });
