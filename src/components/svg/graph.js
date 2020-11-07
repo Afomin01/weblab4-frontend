@@ -1,10 +1,25 @@
 import React, {Fragment} from "react";
 
 export default class Graph extends React.Component{
+    constructor(props) {
+        super(props);
+
+        this.circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        this.circle.setAttribute('class', 'generated-circle')
+        this.circle.setAttribute('r', "4");
+    }
+
+    componentDidMount() {
+        this.graph = document.getElementById('graph');
+        this.pt = this.graph.createSVGPoint();
+    }
+
     render(){
         return (
             <Fragment>
-                <svg height={"600"} width={"600"} viewBox={"-35 -35 420 420"} id={"graph"}>
+                <svg height={"600"} width={"600"} viewBox={"-35 -35 420 420"} id={"graph"}
+                     onMouseMove={this.placeCirce} onMouseLeave={this.hideCircle}
+                     onContextMenu={this.suppressContextMenu}>
                     <path d={"M175 175 175 315 A140 140 0 0 0 315 175Z"} className={"figure-shape"}/>
                     <polygon points={"175,175 175,35 35,35 35,175"} className={"figure-shape"}/>
                     <polygon points={"175,175 175,245 105,175"} className={"figure-shape"}/>
@@ -40,5 +55,24 @@ export default class Graph extends React.Component{
                 </svg>
             </Fragment>
         )
+    }
+
+    placeCirce = (e) => {
+        this.pt.x = e.clientX;
+        this.pt.y = e.clientY;
+        this.pt = this.pt.matrixTransform(this.graph.getScreenCTM().inverse());
+
+        this.circle.setAttribute('cx', this.pt.x);
+        this.circle.setAttribute('cy', this.pt.y);
+        this.graph.append(this.circle);
+    }
+
+    hideCircle = (e) => {
+        this.circle.setAttribute('cx', -40);
+        this.circle.setAttribute('cy', -40);
+    }
+
+    suppressContextMenu = (e) => {
+        e.preventDefault();
     }
 }
