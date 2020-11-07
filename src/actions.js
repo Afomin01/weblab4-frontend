@@ -5,4 +5,11 @@ function setEntries(entries) {
     };
 }
 
-export { setEntries }
+function addEntry(entry) {
+    return {
+        type: 'ADD_ENTRY',
+        entry
+    };
+}
+
+export { setEntries, addEntry }
