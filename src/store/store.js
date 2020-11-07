@@ -1,3 +1,4 @@
 const initialState = {
-    entries: []
+    entries: [],
+    r: 1
 }

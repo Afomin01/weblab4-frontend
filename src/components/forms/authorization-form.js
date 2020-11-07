@@ -11,8 +11,8 @@ export default class AuthorizationForm extends React.Component {
             <div className={"login-signup"}>
                 <div className={"toggle-btns-div"}>
                     <div id={"toggle-btn-slider"} className={"toggle-btn-slider"}/>
-                    <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignIn}>Sign In</button>
-                    <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignUp}>Sign Up</button>
+                    <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignIn} id={"slide-sign-in-btn"}>Sign In</button>
+                    <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignUp} id={"slide-sign-up-btn"}>Sign Up</button>
                 </div>
                 <LoginForm/>
                 <SignUpForm/>

@@ -29,6 +29,8 @@ export default class SignUpForm extends React.Component {
         var pass = document.getElementById("signup-form-password").value;
         var passConfirm = document.getElementById("confirm").value;
 
+        var slideBtn = document.getElementById("slide-sign-in-btn");
+
         if(login.length >=5) {
             if (login.match(/[^a-z0-9]/ig) === null) {
                 if (pass.length >= 5) {
@@ -39,7 +41,7 @@ export default class SignUpForm extends React.Component {
                             .type('json')
                             .end(function(err, res){
                                 if (res.ok) {
-
+                                    slideBtn.click()
                                 }else error.innerHTML = res.body;
                             });
                     } else error.innerHTML = "Passwords are not equal"
