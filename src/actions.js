@@ -1,22 +1,8 @@
-const xChanged = (x) => {
+function setEntries(entries) {
     return {
-        type: 'X_CHANGED',
-        x
-    }
+        type: 'SET_ENTRIES',
+        entries
+    };
 }
 
-const yChanged = (y) => {
-    return {
-        type: 'Y_CHANGED',
-        y
-    }
-}
-
-const rChanged = (r) => {
-    return {
-        type: 'R_CHANGED',
-        r
-    }
-}
-
-module.exports = {xChanged, yChanged, rChanged}
+export { setEntries }

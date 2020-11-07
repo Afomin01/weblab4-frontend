@@ -1,9 +1,10 @@
 import React, {Fragment} from "react";
 import EntryTableRow from "./entry-table-row";
+import { connect } from "react-redux";
 
-export default class MainPageEntryTable extends React.Component {
+class MainPageEntryTable extends React.Component {
     render() {
-        return (<Fragment>
+        return (
                 <table className={"result-table"}>
                     <thead>
                         <th>X</th>
@@ -13,13 +14,20 @@ export default class MainPageEntryTable extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        this.props.entries.map(function (item, i) {
-                            return <EntryTableRow x={item.x} y={item.y} r={item.r} result={item.result}/>
+                        this.props.entries.map(function (entry, i) {
+                            return <EntryTableRow entry={entry}/>
                         })
                     }
                     </tbody>
                 </table>
-            </Fragment>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        entries: state.get('entries')
+    }
+}
+
+export default connect(mapStateToProps)(MainPageEntryTable);
