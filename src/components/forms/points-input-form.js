@@ -3,7 +3,7 @@ import TextField from "../inputs/text-field";
 import RadioGroup from "../inputs/radio-group";
 import request from "superagent";
 import {connect} from "react-redux";
-import {addEntry} from "../../actions";
+import {addEntry} from "../../actions/actions";
 
 class PointsInputForm extends React.Component{
     render(){

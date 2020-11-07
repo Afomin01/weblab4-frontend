@@ -1,15 +1,22 @@
 function setEntries(entries) {
     return {
         type: 'SET_ENTRIES',
-        entries
+        payload: entries
     };
 }
 
 function addEntry(entry) {
     return {
         type: 'ADD_ENTRY',
-        entry
+        payload: entry
     };
+}
+
+function changeR(r){
+    return{
+        type: 'CHANGE_R',
+        payload: r
+    }
 }
 
 export { setEntries, addEntry }

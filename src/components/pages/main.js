@@ -3,8 +3,10 @@ import PointsInputForm from "../forms/points-input-form";
 import Graph from "../svg/graph";
 import MainPageEntryTable from "../table/main-page-entry-table";
 import request from "superagent";
-import {setEntries} from "../../actions";
+import {setEntries} from "../../actions/actions";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
+import history from "../../history";
 
 class Main extends React.Component{
     constructor(props){
@@ -22,8 +24,8 @@ class Main extends React.Component{
                 if (res.ok) {
                     dispatch(setEntries(JSON.parse(res.text)))
                 } else if (res.status === 401) {
-                    // go to login
-                }
+                    history.push("/welcome")
+                }//reload page???
             });
     }
 

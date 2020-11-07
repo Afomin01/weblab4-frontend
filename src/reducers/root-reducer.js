@@ -7,9 +7,9 @@ const initialState = Map({
 export default function rootReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_ENTRIES':
-            return state.update('entries', () => action.entries);
+            return state.update('entries', () => action.payload);
         case 'ADD_ENTRY':
-            return state.update('entries', (entries) => entries.concat(action.entry));
+            return state.update('entries', (entries) => entries.concat(action.payload));
         default:
             return state;
     }

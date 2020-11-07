@@ -1,6 +1,8 @@
 import React from 'react'
 import request from "superagent";
 import TextField from "../inputs/text-field";
+import {Redirect} from "react-router-dom";
+import history from "../../history";
 
 export default class SignUpForm extends React.Component {
     render() {
@@ -37,7 +39,7 @@ export default class SignUpForm extends React.Component {
                             .type('json')
                             .end(function(err, res){
                                 if (res.ok) {
-                                    //redirrect
+
                                 }else error.innerHTML = res.body;
                             });
                     } else error.innerHTML = "Passwords are not equal"

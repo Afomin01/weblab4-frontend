@@ -1,6 +1,7 @@
 import React from 'react'
 import request from "superagent";
 import TextField from "../inputs/text-field";
+import history from '../../history';
 
 export default class LoginForm extends React.Component {
     render() {
@@ -31,7 +32,7 @@ export default class LoginForm extends React.Component {
             .set('X-Requested-With', 'XMLHttpRequest')
             .end(function(err, res){
                 if (res.ok) {
-                    //redirrect
+                    history.push("/main")
                 }else error.innerHTML = "Incorrect login or password"
             });
     }
