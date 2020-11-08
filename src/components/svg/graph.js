@@ -35,7 +35,7 @@ class Graph extends React.Component{
             <Fragment>
                 <svg height={"600"} width={"600"} viewBox={"-35 -35 420 420"} id={"graph"}
                      onMouseMove={this.placeCirce} onMouseLeave={this.hideCircle}
-                     onContextMenu={this.suppressContextMenu}>
+                     onContextMenu={this.suppressContextMenu} onClick={this.submit}>
 
                     <path d={
                         `M175 175 175 ${this.circleDot} A${this.circleR} ${this.circleR} 0 0 0 ${this.circleDot} 175Z`
@@ -123,6 +123,10 @@ class Graph extends React.Component{
 
     suppressContextMenu = (e) => {
         e.preventDefault();
+    }
+
+    submit = (e) => {
+
     }
 }
 
