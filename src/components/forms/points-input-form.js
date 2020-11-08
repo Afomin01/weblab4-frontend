@@ -3,11 +3,19 @@ import TextField from "../inputs/text-field";
 import RadioGroup from "../inputs/radio-group";
 import request from "superagent";
 import {connect} from "react-redux";
-import {addEntry, clearEntries} from "../../actions/actions";
+import {addEntry, clearEntries, setR} from "../../actions/actions";
 import Cookies from "js-cookie";
 import history from "../../history";
 
 class PointsInputForm extends React.Component{
+    componentDidMount() {
+        Array.from(document.querySelectorAll('input[name="r"]')).forEach((radio) => {
+            radio.addEventListener('click', (event) => {
+                this.props.dispatch(setR(radio.value));
+            })
+        })
+    }
+
     render(){
         return(
             <Fragment>

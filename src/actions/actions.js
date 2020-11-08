@@ -12,9 +12,9 @@ function addEntry(entry) {
     };
 }
 
-function changeR(r){
+function setR(r){
     return{
-        type: 'CHANGE_R',
+        type: 'SET_R',
         payload: r
     }
 }
@@ -26,4 +26,4 @@ function clearEntries(){
     }
 }
 
-export { setEntries, addEntry, changeR, clearEntries }
+export { setEntries, addEntry, setR, clearEntries }
