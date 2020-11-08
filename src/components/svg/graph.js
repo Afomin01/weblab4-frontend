@@ -4,7 +4,6 @@ import request from "superagent";
 import {addEntry} from "../../actions/actions";
 import Cookies from "js-cookie";
 import history from "../../history";
-import EntryTableRow from "../table/entry-table-row";
 
 class Graph extends React.Component{
     constructor(props) {
@@ -130,7 +129,7 @@ class Graph extends React.Component{
                                     result = false;
                                 } else result = false;
                             }else{
-                                result = x==0 && y==0;
+                                result = x===0 && y===0;
                             }
 
                             return <circle cx={35*entry.x+175} cy={-35*entry.y+175} r={3} fill={ result ? '#45b745' : 'crimson' }/>

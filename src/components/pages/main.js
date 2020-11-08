@@ -5,16 +5,11 @@ import MainPageEntryTable from "../table/main-page-entry-table";
 import request from "superagent";
 import {setEntries} from "../../actions/actions";
 import {connect} from "react-redux";
-import {Redirect} from "react-router-dom";
 import history from "../../history";
 import UserModule from "../general/user-logout";
 import Cookies from "js-cookie";
 
 class Main extends React.Component{
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount() {
         var dispatch = this.props.dispatch;
 

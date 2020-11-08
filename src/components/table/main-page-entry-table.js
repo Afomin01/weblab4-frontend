@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React from "react";
 import EntryTableRow from "./entry-table-row";
 import { connect } from "react-redux";
 

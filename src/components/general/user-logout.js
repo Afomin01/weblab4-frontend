@@ -1,6 +1,5 @@
 import React from 'react'
 import request from "superagent";
-import {addEntry} from "../../actions/actions";
 import history from "../../history";
 import Cookies from "js-cookie";
 

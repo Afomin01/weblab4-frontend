@@ -9,7 +9,7 @@ export default class Footer extends React.Component{
                     <div>© Artem Bakin and Dmitriy Kuperstein, 2020</div>
                     <div>
                         <a href="https://github.com/Afomin01/webLab2">
-                            <img src={githubLogo} id={"gitHub-img"}/>
+                            <img src={githubLogo} id={"gitHub-img"} alt={"github"}/>
                         </a>
                     </div>
                 </div>

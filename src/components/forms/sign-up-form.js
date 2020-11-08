@@ -1,8 +1,6 @@
 import React from 'react'
 import request from "superagent";
 import TextField from "../inputs/text-field";
-import {Redirect} from "react-router-dom";
-import history from "../../history";
 
 export default class SignUpForm extends React.Component {
     render() {
