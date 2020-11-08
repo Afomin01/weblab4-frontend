@@ -2,7 +2,7 @@ import { Map } from 'immutable';
 
 const initialState = Map({
     entries: [],
-    r: NaN
+    r: 2
 });
 
 export default function rootReducer(state = initialState, action) {

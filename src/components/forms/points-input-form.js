@@ -9,6 +9,7 @@ import history from "../../history";
 
 class PointsInputForm extends React.Component{
     componentDidMount() {
+        document.querySelector('input[name="r"][value="2"]').checked = true;
         Array.from(document.querySelectorAll('input[name="r"]')).forEach((radio) => {
             radio.addEventListener('click', (event) => {
                 this.props.dispatch(setR(radio.value));
