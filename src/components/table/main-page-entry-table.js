@@ -7,15 +7,17 @@ class MainPageEntryTable extends React.Component {
         return (
                 <table className={"result-table"}>
                     <thead>
+                    <tr>
                         <th>X</th>
                         <th>Y</th>
                         <th>R</th>
                         <th>Result</th>
+                    </tr>
                     </thead>
                     <tbody>
                     {
                         this.props.entries.reverse().map(function (entry, i) {
-                            return <EntryTableRow entry={entry}/>
+                            return <EntryTableRow key={entry.id} entry={entry}/>
                         })
                     }
                     </tbody>

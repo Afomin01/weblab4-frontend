@@ -5,7 +5,7 @@ export default class RadioGroup extends React.Component{
     render() {
         let buttons = [];
         for (let i = this.props.start; i <= this.props.stop; i += this.props.step) {
-            buttons.push(<RadioButton name={this.props.name} value={i}/>);
+            buttons.push(<RadioButton key={i} name={this.props.name} value={i}/>);
         }
 
         return (

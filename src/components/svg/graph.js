@@ -22,17 +22,16 @@ class Graph extends React.Component{
         this.pt = this.graph.createSVGPoint();
     }
 
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        let dot = 35 * nextProps.r;
-        this.squareDot = 175 - dot;
-        this.circleDot = 175 + dot;
-        this.circleR = 35 * nextProps.r;
-        this.triDot = this.circleR / 2;
-    }
-
     render(){
         var entries = this.props.entries;
         var r = this.props.r
+
+        let dot = 35 * this.props.r;
+        this.squareDot = 175 - dot;
+        this.circleDot = 175 + dot;
+        this.circleR = 35 * this.props.r;
+        this.triDot = this.circleR / 2;
+
         return (
             <Fragment>
                 <svg viewBox={"-35 -35 420 420"} id={"graph"}
@@ -132,7 +131,7 @@ class Graph extends React.Component{
                                 result = x===0 && y===0;
                             }
 
-                            return <circle cx={35*entry.x+175} cy={-35*entry.y+175} r={3} fill={ result ? '#45b745' : 'crimson' }/>
+                            return <circle key={entry.id} cx={35*entry.x+175} cy={-35*entry.y+175} r={3} fill={ result ? '#45b745' : 'crimson' }/>
                         })
 
                     }
