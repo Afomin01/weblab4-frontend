@@ -10,6 +10,10 @@ export default function rootReducer(state = initialState, action) {
             return state.update('entries', () => action.payload);
         case 'ADD_ENTRY':
             return state.update('entries', (entries) => entries.concat(action.payload));
+        case 'CHANGE_R':
+            return state.update('r', ()=>action.payload )
+        case 'CLEAR_ENTRIES':
+            return state.update('entries', () => [])
         default:
             return state;
     }

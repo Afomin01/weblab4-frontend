@@ -19,4 +19,11 @@ function changeR(r){
     }
 }
 
-export { setEntries, addEntry }
+function clearEntries(){
+    return{
+        type: 'CLEAR_ENTRIES',
+        payload: []
+    }
+}
+
+export { setEntries, addEntry, changeR, clearEntries }

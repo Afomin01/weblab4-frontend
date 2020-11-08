@@ -22,20 +22,23 @@ export default class LoginForm extends React.Component {
         e.preventDefault();
 
         let error = document.getElementById("signin-error");
+        error.innerHTML = ""
 
         var login = document.getElementById("login-form-login").value;
         var pass = document.getElementById("login-form-password").value;
 
-        request
-            .get('http://localhost:6203/api/authorization/signin')
-            .withCredentials()
-            .auth(login, pass)
-            .set('X-Requested-With', 'XMLHttpRequest')
-            .end(function(err, res){
-                if (res.ok) {
-                    Cookies.set('current-username', login);
-                    history.push("/main")
-                }else error.innerHTML = "Incorrect login or password"
-            });
+        if(!(login==='' || pass==='')) {
+            request
+                .get('http://localhost:6203/api/authorization/signin')
+                .withCredentials()
+                .auth(login, pass)
+                .set('X-Requested-With', 'XMLHttpRequest')
+                .end(function (err, res) {
+                    if (res.ok) {
+                        Cookies.set('is-logged-in', 'true');
+                        history.push("/main")
+                    } else error.innerHTML = "Incorrect login or password"
+                });
+        }else error.innerHTML = "Please fill login and password fields"
     }
 }

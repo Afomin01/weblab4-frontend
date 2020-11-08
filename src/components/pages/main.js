@@ -7,6 +7,8 @@ import {setEntries} from "../../actions/actions";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import history from "../../history";
+import UserModule from "../general/user-logout";
+import Cookies from "js-cookie";
 
 class Main extends React.Component{
     constructor(props){
@@ -16,6 +18,8 @@ class Main extends React.Component{
     componentDidMount() {
         var dispatch = this.props.dispatch;
 
+        if(Cookies.get('is-logged-in') === 'false') history.push("/welcome")
+
         request
             .get('http://localhost:6203/api/entries')
             .withCredentials()
@@ -24,14 +28,16 @@ class Main extends React.Component{
                 if (res.ok) {
                     dispatch(setEntries(JSON.parse(res.text)))
                 } else if (res.status === 401) {
+                    Cookies.set('is-logged-in','false')
                     history.push("/welcome")
-                }//reload page???
+                }
             });
     }
 
     render(){
         return(
             <Fragment>
+                <UserModule/>
                 <div id={"entry-form-graph"}>
                     <PointsInputForm/>
                     <Graph/>

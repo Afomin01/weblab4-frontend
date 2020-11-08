@@ -24,6 +24,7 @@ export default class SignUpForm extends React.Component {
         e.preventDefault();
 
         let error = document.getElementById("signup-error");
+        error.innerHTML = ""
 
         var login = document.getElementById("signup-form-login").value;
         var pass = document.getElementById("signup-form-password").value;

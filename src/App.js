@@ -9,10 +9,12 @@ import NotFound from "./components/errors/not-found";
 import Cookies from 'js-cookie'
 import history from './history';
 
-var isAuth = Cookies.get('current-username') != null;
-if (isAuth) history.push('/main');
 
 function App() {
+    if(Cookies.get('is-logged-in')===null) Cookies.set('is-logged-in','false')
+
+    if(Cookies.get('is-logged-in')) history.push("/main")
+
   return (
           <div id={"main"}>
               <Switch>

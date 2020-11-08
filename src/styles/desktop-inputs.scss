@@ -11,6 +11,8 @@ $inputs-secondary-color: #ffffff;
 $input-text-line-color: #00a109;
 
 form {
+  display: flex;
+  flex-direction: column;
   background: $form-color;
   width: $form-width;
   border-radius: $form-border-radius;
@@ -25,6 +27,14 @@ form {
     label {
       text-align: center;
     }
+  }
+}
+#logout-div{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  > button{
+    width: 8em;
   }
 }
 
@@ -194,6 +204,7 @@ input[type="text"], input[type="password"]{
 }
 
 .button{
+  outline:none;
   width: 40%;
   color: white;
   border: 2px solid $input-text-line-color;
