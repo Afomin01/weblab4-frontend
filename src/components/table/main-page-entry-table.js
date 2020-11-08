@@ -14,7 +14,7 @@ class MainPageEntryTable extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        this.props.entries.map(function (entry, i) {
+                        this.props.entries.reverse().map(function (entry, i) {
                             return <EntryTableRow entry={entry}/>
                         })
                     }

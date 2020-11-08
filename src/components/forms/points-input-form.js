@@ -61,7 +61,7 @@ class PointsInputForm extends React.Component{
         if (x !== undefined && r !== undefined && y !== "") {
             let yValue = y.replace(/\s/g,'').replace(',','.');
             if((!isNaN(yValue)) && !(parseFloat(yValue) >= 5 || parseFloat(yValue) <= -5 )) {
-                yValue = parseFloat(yValue).toFixed(7)
+                yValue = parseFloat(yValue).toFixed(5)
                 var dispatch = this.props.dispatch;
 
                 request

@@ -1,13 +1,14 @@
 import React, {Fragment} from "react";
 import {connect} from "react-redux";
+import request from "superagent";
+import {addEntry} from "../../actions/actions";
+import Cookies from "js-cookie";
+import history from "../../history";
+import EntryTableRow from "../table/entry-table-row";
 
 class Graph extends React.Component{
     constructor(props) {
         super(props);
-
-        this.circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        this.circle.setAttribute('class', 'generated-circle')
-        this.circle.setAttribute('r', "4");
 
         let defaultR = 2;
         let dot = 35 * defaultR;
@@ -31,10 +32,11 @@ class Graph extends React.Component{
     }
 
     render(){
+        var entries = this.props.entries;
+        var r = this.props.r
         return (
             <Fragment>
-                <svg height={"600"} width={"600"} viewBox={"-35 -35 420 420"} id={"graph"}
-                     onMouseMove={this.placeCirce} onMouseLeave={this.hideCircle}
+                <svg viewBox={"-35 -35 420 420"} id={"graph"}
                      onContextMenu={this.suppressContextMenu} onClick={this.submit}>
 
                     <path d={
@@ -101,24 +103,44 @@ class Graph extends React.Component{
                     <text x="280" y="167" textAnchor={"middle"} className="figure-axis-text">3</text>
                     <text x="315" y="167" textAnchor={"middle"} className="figure-axis-text">4</text>
                     <text x="350" y="167" textAnchor={"middle"} className="figure-axis-text">5</text>
+
+                    {
+
+                        entries.map(function (entry, i) {
+                            let result;
+                            let x=entry.x, y=entry.y
+                            if(r>0) {
+                                if (x <= 0 && y >= 0) {
+                                    result = y <= r && x >= -r;
+                                } else if (x <= 0 && y <= 0) {
+                                    result = -y <= x + r/2;
+                                } else if (x >= 0 && y <= 0) {
+                                    result = x * x + y * y <= r * r;
+                                } else if (y > 0 && x > 0) {
+                                    result = false;
+                                } else result = false;
+                            }else if(r<0){
+                                if (x <= 0 && y >= 0) {
+                                    result = x * x + y * y <= r * r;
+                                } else if (x >= 0 && y >= 0) {
+                                    result = x<=-y+(-r/2);
+                                } else if (x >= 0 && y <= 0) {
+                                    result = x <= -r && y >= r;
+                                } else if (y < 0 && x < 0) {
+                                    result = false;
+                                } else result = false;
+                            }else{
+                                result = x==0 && y==0;
+                            }
+
+                            return <circle cx={35*entry.x+175} cy={-35*entry.y+175} r={3} fill={ result ? '#45b745' : 'crimson' }/>
+                        })
+
+                    }
+
                 </svg>
             </Fragment>
         )
-    }
-
-    placeCirce = (e) => {
-        this.pt.x = e.clientX;
-        this.pt.y = e.clientY;
-        this.pt = this.pt.matrixTransform(this.graph.getScreenCTM().inverse());
-
-        this.circle.setAttribute('cx', this.pt.x);
-        this.circle.setAttribute('cy', this.pt.y);
-        this.graph.append(this.circle);
-    }
-
-    hideCircle = (e) => {
-        this.circle.setAttribute('cx', -40);
-        this.circle.setAttribute('cy', -40);
     }
 
     suppressContextMenu = (e) => {
@@ -126,13 +148,40 @@ class Graph extends React.Component{
     }
 
     submit = (e) => {
+        let pt = this.graph.createSVGPoint();
+        let r = this.props.r;
+        var dispatch = this.props.dispatch;
+        pt.x = e.clientX;
+        pt.y = e.clientY;
+        pt = pt.matrixTransform(this.graph.getScreenCTM().inverse());
 
+        let x = (pt.x-175)/35
+        let y = (pt.y-175)/-35
+
+        x = x.toFixed(5);
+        y = y.toFixed(5)
+
+        request
+            .post('http://localhost:6203/api/entries')
+            .withCredentials()
+            .set('X-Requested-With', 'XMLHttpRequest')
+            .send(JSON.stringify({x: x, y: y, r: r}))
+            .type('json')
+            .end(function (err, res) {
+                if (res.ok) {
+                    dispatch(addEntry(JSON.parse(res.text)));
+                } else if (res.status === 401) {
+                    Cookies.set('is-logged-in','false')
+                    history.push("/welcome")
+                }
+            });
     }
 }
 
 const mapStateToProps = state => {
     return {
-        r: state.get('r')
+        r: state.get('r'),
+        entries: state.get('entries')
     }
 }
 

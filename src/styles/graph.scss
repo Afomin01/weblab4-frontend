@@ -1,5 +1,7 @@
+$graph-color: #242499;
+
 #graph{
-  margin: 15px auto;
+  margin: 0 10px 10px 10px;
   display: block;
 
   -moz-user-select: none;
@@ -16,8 +18,8 @@
   animation: draw-lines 3s linear forwards;
 }
 .figure-shape {
-  fill: crimson;
-  stroke: crimson;
+  fill: $graph-color;
+  stroke: $graph-color;
 }
 
 .figure-axis {

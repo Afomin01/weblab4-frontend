@@ -7,6 +7,8 @@ $minimal-footer-header-width:1200px;
 $header-space: 6%;
 $footer-space: 5%;
 
+$graph-size:600px;
+
 //general variables
 $background-color: #212121;
 $div-background-color: #131313;
@@ -24,6 +26,10 @@ body{
   height: 100%;
   margin: 0;
   padding: 0;
+}
+#graph{
+  width: $graph-size;
+  height: $graph-size;
 }
 #header{
   flex-shrink: 0;
