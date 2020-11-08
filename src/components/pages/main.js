@@ -39,8 +39,8 @@ class Main extends React.Component{
             <Fragment>
                 <UserModule/>
                 <div id={"entry-form-graph"}>
-                    <PointsInputForm/>
                     <Graph/>
+                    <PointsInputForm/>
                 </div>
                 <MainPageEntryTable/>
             </Fragment>

@@ -10,11 +10,13 @@ $inputs-primary-color: #1f58b8;
 $inputs-secondary-color: #ffffff;
 $input-text-line-color: #00a109;
 
+
 form {
   display: flex;
   flex-direction: column;
   background: $form-color;
   width: $form-width;
+  min-width: $form-width;
   border-radius: $form-border-radius;
   padding: $form-border-radius/2;
   justify-content: center;
@@ -23,7 +25,7 @@ form {
     display: flex;
     flex-direction: column;
     margin: $form-divs-margin 0;
-    padding: 0 10%;
+    padding: 0 10px;
     label {
       text-align: center;
     }
@@ -31,6 +33,7 @@ form {
 }
 #logout-div{
   width: 100%;
+  margin: 0 0 $form-divs-margin 0;
   display: flex;
   justify-content: flex-end;
   > button{
@@ -48,6 +51,7 @@ form {
 }
 
 .radio-div{
+  padding: 0 0 0 $form-divs-margin*2;
   display: flex;
   flex-wrap: wrap;
   label{

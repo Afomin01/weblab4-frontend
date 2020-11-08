@@ -1,13 +1,13 @@
 //device specific variables
-$headers-font-size: 22px;
-$footer-font-size: 16px;
+$headers-font-size: 12px;
+$footer-font-size: 14px;
 $normal-font-size: 12px;
-$minimal-footer-header-width:1200px;
+$minimal-footer-header-width:400px;
 
 $header-space: 4em;
 $footer-space: 4em;
 
-$graph-size:600px;
+$graph-size:380px;
 
 //general variables
 $background-color: #212121;
@@ -21,9 +21,11 @@ html{
   background: $background-color;
   color: $font-color;
   height: 100%;
+  min-width: 400px;
 }
 body{
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -138,7 +140,7 @@ body{
 .result-table{
   margin: 20px 0 0 0;
   color: white;
-  width: 70%;
+  width: 90%;
   border-spacing: 2px;
   border: 2px solid white;
   border-collapse: collapse;

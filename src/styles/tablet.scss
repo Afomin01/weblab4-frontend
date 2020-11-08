@@ -1,8 +1,8 @@
 //device specific variables
-$headers-font-size: 22px;
+$headers-font-size: 20px;
 $footer-font-size: 16px;
 $normal-font-size: 12px;
-$minimal-footer-header-width:1200px;
+$minimal-footer-header-width:600px;
 
 $header-space: 4em;
 $footer-space: 4em;
@@ -125,9 +125,9 @@ body{
 }
 #entry-form-graph{
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .error-label{
   color: crimson;
