@@ -16,7 +16,7 @@ class MainPageEntryTable extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        this.props.entries.reverse().map(function (entry, i) {
+                        this.props.entries.sort((a, b) => (b.id - a.id)).map(function (entry, i) {
                             return <EntryTableRow key={entry.id} entry={entry}/>
                         })
                     }
