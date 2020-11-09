@@ -41,7 +41,7 @@ export default class SignUpForm extends React.Component {
                             .end(function(err, res){
                                 if (res.ok) {
                                     slideBtn.click()
-                                }else error.innerHTML = res.body;
+                                }else error.innerHTML = res.text;
                             });
                     } else error.innerHTML = "Passwords are not equal"
                 } else error.innerHTML = "Password must be at least 5 symbols long"
