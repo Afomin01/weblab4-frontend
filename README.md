@@ -8,11 +8,11 @@ Web programming lab 4 frontend made at ITMO University by Artem Bakin and Dmitry
 ## Task
 Develop a frontend on React + Redux stack for backend RESP API.
 
-| Var | Type | Valid values                                     | Input         |
-| --- | ---- | ------------------------------------------------ | ------------- |
-| X   |float |{'-2','-1.5','-1','-0.5','0','0.5','1','1.5','2'} | Radio         |
-| Y   |float |(-5,5)                                            | Text          |
-| R   |float | {'-2','-1.5','-1','-0.5','0','0.5','1','1.5','2'}| Radio         |
+| Var | Type | Valid values                           | Input         |
+| --- | ---- | -------------------------------------- | ------------- |
+| X   |float |{-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2} | Radio         |
+| Y   |float |(-5,5)                                  | Text          |
+| R   |float |{-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2} | Radio         |
 
 ## Components structure
 ```
