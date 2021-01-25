@@ -4,7 +4,7 @@ import TextField from "../inputs/text-field";
 import history from '../../history';
 import Cookies from 'js-cookie'
 
-export default class LoginForm extends React.Component {
+export default class SignInForm extends React.Component {
     render() {
         return (
             <form id={"login-form"} className={"login-signup-form"} onSubmit={this.submit}>

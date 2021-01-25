@@ -9,7 +9,7 @@ import history from "../../history";
 import UserModule from "../general/user-logout";
 import Cookies from "js-cookie";
 
-class Main extends React.Component{
+class MainPage extends React.Component{
     componentDidMount() {
         var dispatch = this.props.dispatch;
 
@@ -43,4 +43,4 @@ class Main extends React.Component{
     }
 }
 
-export default connect(null)(Main);
+export default connect(null)(MainPage);

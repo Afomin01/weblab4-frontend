@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from "./sign-in-form";
+import SignInForm from "./sign-in-form";
 import SignUpForm from "./sign-up-form";
 
 
@@ -12,7 +12,7 @@ export default class AuthorizationForm extends React.Component {
                     <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignIn} id={"slide-sign-in-btn"}>Sign In</button>
                     <button type={"button"} className={"toggle-btn"} onClick={this.slideToSignUp} id={"slide-sign-up-btn"}>Sign Up</button>
                 </div>
-                <LoginForm/>
+                <SignInForm/>
                 <SignUpForm/>
             </div>
         )

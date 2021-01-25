@@ -8,15 +8,39 @@ Web programming lab 4 frontend made at ITMO University by Artem Bakin and Dmitry
 ## Task
 Develop a frontend on React + Redux stack for backend RESP API.
 
+| Var | Type | Valid values                                     | Input         |
+| --- | ---- | ------------------------------------------------ | ------------- |
+| X   |float |{'-2','-1.5','-1','-0.5','0','0.5','1','1.5','2'} | Radio         |
+| Y   |float |(-5,5)                                            | Text          |
+| R   |float | {'-2','-1.5','-1','-0.5','0','0.5','1','1.5','2'}| Radio         |
+
 ## Components structure
 ```
 weblab4-frontend
-├── welcome page
-│   └── AuthorizationForm
-│       ├── LoginForm
+├──Header
+├──Footer
+├── WelcomePage
+│   └── authorizationForm
+│       ├── SignInForm
 │       └── SignUpForm
-└── main page
+└── MainPage
     ├── UserModule
+    ├── Graph
     ├── PointsInputForm
     └── MainPageEntryTable
+        └──EntryTableRow
 ```
+
+## Redux store
+| Variable    | Desc                            | 
+| ----------- | ------------------------------- |
+| entries     | array of user's entries         |
+| r           | the current selected radius     |
+
+## Redux actions
+| Action        | Desc                            |
+| ------------- | ------------------------------- |
+| SET_ENTRIES   | Set array of entries            |
+| ADD_ENTRY     | Add new entry to array          |
+| SET_R         | Set current radius              |
+| CLEAR_ENTRIES | Clear array of entries          | 
